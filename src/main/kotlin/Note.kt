@@ -18,22 +18,22 @@ class NoteManager( private val menuHolder: MenuHolder<Note>) {
 
     private fun createNote(archive: Archive) {
         var title = ""
-        var content = ""
-        while(title.isEmpty()){
-            val title = InputReader.readString("Введите заголовок заметки:")
+        while(title.isEmpty()) {
+            title = InputReader.readString("Введите заголовок заметки:")
             if (title.isEmpty()) {
-                println("Заголовок заметки не может быть пустым. Попробуйте снова.")}
-            else {
-                while (content.isEmpty()) {
-                    content = InputReader.readString("Введите текст заметки:")
-                    if (content.isEmpty()) {
-                        println("Текст заметки не может быть пустым. Попробуйте снова.")
-                    }
-                }}
-                val note = Note(title, content)
-                archive.addNote(note)
-        return}
+                println("Заголовок заметки не может быть пустым. Попробуйте снова.")
             }
+        }
+        var content = ""
+        while (content.isEmpty()) {
+            content = InputReader.readString("Введите текст заметки:")
+            if (content.isEmpty()) {
+                println("Текст заметки не может быть пустым. Попробуйте снова.")
+            }
+        }
+        val note = Note(title, content)
+        archive.addNote(note)
+    }
 
 
 
